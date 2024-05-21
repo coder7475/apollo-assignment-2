@@ -25,8 +25,8 @@ const inventorySchema = new Schema<TInventory>({
   },
 });
 
-// schema for prodct
-const productSchema = new Schema({
+// schema for product
+const productSchema = new Schema<IProduct>({
   name: {
     type: String,
     required: [true, 'name is required'],
@@ -49,6 +49,10 @@ const productSchema = new Schema({
   },
   variants: {
     type: [variantSchema],
+    required: true,
+  },
+  inventory: {
+    type: inventorySchema,
     required: true,
   },
 });
