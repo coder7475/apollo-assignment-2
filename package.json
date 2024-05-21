@@ -1,7 +1,7 @@
 {
-  "name": "project-1",
+  "name": "apollo-assignment-2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Assignment for PH Level-2 course",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
