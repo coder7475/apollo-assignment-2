@@ -14,7 +14,16 @@ router.get('/', (req: Request, res: Response) => {
 
 // api/products/:productId [GET] - Get a specified product
 router.get('/:productId', (req: Request, res: Response) => {
-  res.json({ message: `products Id: ${req.params.productId} in database!` });
+  res.json({
+    message: `Get a product with products Id: ${req.params.productId} in database!`,
+  });
+});
+
+// api/products/:productId [PUT] - Update a product
+router.put('/:productId', (req: Request, res: Response) => {
+  res.json({
+    message: `Update product Id: ${req.params.productId}!`,
+  });
 });
 
 export const ProductRouter = router;
