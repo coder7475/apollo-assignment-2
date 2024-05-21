@@ -7,8 +7,14 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors());
 
+// Root Route
 app.get('/', (req: Request, res: Response) => {
-  res.send('PH Ecommerce app is running!');
+  res.json({ message: 'PH Ecommerce app is running!' });
+});
+
+// Application Routes
+app.use('/api/products', (req: Request, res: Response) => {
+  res.json({ message: 'Go to product route' });
 });
 
 export default app;
