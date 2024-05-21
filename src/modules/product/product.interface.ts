@@ -1,10 +1,10 @@
 // type for variant object
-type TVariant = {
+export type TVariant = {
   type: string;
   value: string;
 };
 // type for inventory object
-type TInventory = {
+export type TInventory = {
   quantity: number;
   inStock: boolean;
 };
