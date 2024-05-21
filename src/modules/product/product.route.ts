@@ -12,4 +12,9 @@ router.get('/', (req: Request, res: Response) => {
   res.json({ message: 'Get all products from database!' });
 });
 
+// api/products/:productId [GET] - Get a specified product
+router.get('/:productId', (req: Request, res: Response) => {
+  res.json({ message: `products Id: ${req.params.productId} in database!` });
+});
+
 export const ProductRouter = router;
