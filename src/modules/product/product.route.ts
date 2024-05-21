@@ -26,4 +26,11 @@ router.put('/:productId', (req: Request, res: Response) => {
   });
 });
 
+// api/products/:productId [Delete] - Delete a product
+router.delete('/:productId', (req: Request, res: Response) => {
+  res.json({
+    message: `Delete product Id: ${req.params.productId}!`,
+  });
+});
+
 export const ProductRouter = router;
