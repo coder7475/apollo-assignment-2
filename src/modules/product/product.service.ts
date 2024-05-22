@@ -25,7 +25,15 @@ const getAllProducts = async (searchTerm: any) => {
   }
 };
 
+// a a specific product by id
+const findOneProduct = async (productId: string) => {
+  const result = await Product.findById(productId);
+
+  return result;
+};
+
 export const ProductServices = {
   createProductInDB,
   getAllProducts,
+  findOneProduct,
 };

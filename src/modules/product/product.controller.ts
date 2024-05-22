@@ -46,7 +46,28 @@ const getAllProducts = async (req: Request, res: Response) => {
   }
 };
 
+// find one specific product
+const findOneProduct = async (req: Request, res: Response) => {
+  try {
+    const result = await ProductServices.findOneProduct(req.params.productId);
+
+    // console.log(result);
+    res.status(200).json({
+      success: true,
+      message: 'Product fetched successfully!',
+      data: result,
+    });
+  } catch (error) {
+    // console.log(error);
+    res.status(404).json({
+      success: false,
+      message: 'Product fetching failed!',
+    });
+  }
+};
+
 export const ControllerOfProduct = {
   createProduct,
   getAllProducts,
+  findOneProduct,
 };
