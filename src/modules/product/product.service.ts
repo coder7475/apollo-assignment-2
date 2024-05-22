@@ -10,19 +10,34 @@ const createProductInDB = async (product: IProduct) => {
 
 // a service to retrive a list of all products
 const getAllProducts = async (searchTerm: any) => {
+  // a projection for filtering field to show
+  const projection = {
+    _id: 0,
+    name: 1,
+    description: 1,
+    price: 1,
+    category: 1,
+    tags: 1,
+    variants: 1,
+    inventory: 1,
+  };
+
   if (searchTerm) {
     // search a product with search term
-    const result = await Product.find({
-      $text: {
-        $search: searchTerm,
+    const result = await Product.find(
+      {
+        $text: {
+          $search: searchTerm,
+        },
       },
-    })
+      projection,
+    )
       .lean()
       .exec();
     return result;
   } else {
     // get all products
-    const result = await Product.find({}).lean().exec();
+    const result = await Product.find({}, projection).lean().exec();
 
     return result;
   }
