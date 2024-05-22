@@ -7,9 +7,7 @@ const router = express.Router();
 router.post('/', ControllerOfProduct.createProduct);
 
 // api/products [GET] - get all products
-router.get('/', (req: Request, res: Response) => {
-  res.json({ message: 'Get all products from database!' });
-});
+router.get('/', ControllerOfProduct.getAllProducts);
 
 // api/products/:productId [GET] - Get a specified product
 router.get('/:productId', (req: Request, res: Response) => {
