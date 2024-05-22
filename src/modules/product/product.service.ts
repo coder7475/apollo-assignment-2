@@ -9,10 +9,20 @@ const createProductInDB = async (product: IProduct) => {
 };
 
 // a service to retrive a list of all products
-const getAllProducts = async () => {
-  const result = await Product.find({});
-
-  return result;
+const getAllProducts = async (searchTerm: any) => {
+  if (searchTerm) {
+    // search a product with search term
+    const result = await Product.find({
+      $text: {
+        $search: searchTerm,
+      },
+    });
+    return result;
+  } else {
+    // get all products
+    const result = await Product.find();
+    return result;
+  }
 };
 
 export const ProductServices = {

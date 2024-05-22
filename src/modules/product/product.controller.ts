@@ -24,9 +24,12 @@ const createProduct = async (req: Request, res: Response) => {
 };
 
 // controller to get all products
+// also search products
 const getAllProducts = async (req: Request, res: Response) => {
   try {
-    const result = await ProductServices.getAllProducts();
+    const searchTerm = req.query.searchTerm;
+    // console.log(searchTerm);
+    const result = await ProductServices.getAllProducts(searchTerm);
 
     // console.log(result);
     res.status(200).json({
