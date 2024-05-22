@@ -1,11 +1,10 @@
 import express, { Request, Response } from 'express';
+import { ControllerOfProduct } from './product.controller';
 
 const router = express.Router();
 
 // api/products [POST] - create a product
-router.post('/', (req: Request, res: Response) => {
-  res.json({ message: 'Create a product in database!' });
-});
+router.post('/', ControllerOfProduct.createProduct);
 
 // api/products [GET] - get all products
 router.get('/', (req: Request, res: Response) => {

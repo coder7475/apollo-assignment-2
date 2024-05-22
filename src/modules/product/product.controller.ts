@@ -7,17 +7,21 @@ const createProduct = async (req: Request, res: Response) => {
 
     const result = await ProductServices.createProductInDB(product);
 
-    console.log(result);
+    // console.log(result);
     res.status(200).json({
       success: true,
       message: 'Product created successfully',
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    res.status(400).json({
+      success: false,
+      message: 'Product creation failded',
+    });
   }
 };
 
-const ControllerOfProduct = {
+export const ControllerOfProduct = {
   createProduct,
 };
