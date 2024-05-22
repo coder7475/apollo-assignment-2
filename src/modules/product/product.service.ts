@@ -1,3 +1,4 @@
+import { projection } from './product.constant';
 import IProduct from './product.interface';
 import { Product } from './product.model';
 
@@ -10,18 +11,6 @@ const createProductInDB = async (product: IProduct) => {
 
 // a service to retrive a list of all products
 const getAllProducts = async (searchTerm: any) => {
-  // a projection for filtering field to show
-  const projection = {
-    _id: 0,
-    name: 1,
-    description: 1,
-    price: 1,
-    category: 1,
-    tags: 1,
-    variants: 1,
-    inventory: 1,
-  };
-
   if (searchTerm) {
     // search a product with search term
     const result = await Product.find(
