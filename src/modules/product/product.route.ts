@@ -13,11 +13,7 @@ router.get('/', ControllerOfProduct.getAllProducts);
 router.get('/:productId', ControllerOfProduct.findOneProduct);
 
 // api/products/:productId [PUT] - Update a product
-router.put('/:productId', (req: Request, res: Response) => {
-  res.json({
-    message: `Update product Id: ${req.params.productId}!`,
-  });
-});
+router.put('/:productId', ControllerOfProduct.updateProductInfo);
 
 // api/products/:productId [Delete] - Delete a product
 router.delete('/:productId', (req: Request, res: Response) => {
