@@ -34,7 +34,7 @@ const getAllProducts = async (searchTerm: any) => {
 
 // a a specific product by id
 const findOneProduct = async (productId: string) => {
-  const result = await Product.findById(productId).lean().exec();
+  const result = await Product.findById(productId, projection).lean().exec();
 
   return result;
 };
