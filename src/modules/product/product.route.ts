@@ -10,11 +10,7 @@ router.post('/', ControllerOfProduct.createProduct);
 router.get('/', ControllerOfProduct.getAllProducts);
 
 // api/products/:productId [GET] - Get a specified product
-router.get('/:productId', (req: Request, res: Response) => {
-  res.json({
-    message: `Get a product with products Id: ${req.params.productId} in database!`,
-  });
-});
+router.get('/:productId', ControllerOfProduct.findOneProduct);
 
 // api/products/:productId [PUT] - Update a product
 router.put('/:productId', (req: Request, res: Response) => {
