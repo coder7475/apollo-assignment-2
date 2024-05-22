@@ -11,14 +11,15 @@ const createProduct = async (req: Request, res: Response) => {
     // console.log(result);
     res.status(200).json({
       success: true,
-      message: 'Product created successfully',
+      message: 'Product created successfully!',
       data: result,
     });
   } catch (error) {
     // console.log(error);
-    res.status(400).json({
+    res.status(500).json({
       success: false,
-      message: 'Product creation failed',
+      message: 'Product creation failed!',
+      error,
     });
   }
 };
@@ -39,9 +40,10 @@ const getAllProducts = async (req: Request, res: Response) => {
     });
   } catch (error) {
     // console.log(error);
-    res.status(404).json({
+    res.status(500).json({
       success: false,
       message: 'Products fetching failed!',
+      error,
     });
   }
 };
@@ -83,9 +85,10 @@ const updateProductInfo = async (req: Request, res: Response) => {
     });
   } catch (error) {
     // console.log(error);
-    res.status(400).json({
+    res.status(500).json({
       success: false,
       message: 'Product update failed!',
+      error,
     });
   }
 };
@@ -101,13 +104,14 @@ const deleteProductById = async (req: Request, res: Response) => {
     res.status(200).json({
       success: true,
       message: 'Product deleted successfully!',
-      data: result,
+      data: null,
     });
   } catch (error) {
     // console.log(error);
-    res.status(404).json({
+    res.status(500).json({
       success: false,
       message: 'Product deletetion failed!',
+      error,
     });
   }
 };
