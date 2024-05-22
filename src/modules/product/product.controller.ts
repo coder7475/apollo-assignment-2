@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { ProductServices } from './product.service';
 
+// controller for creating a new product
 const createProduct = async (req: Request, res: Response) => {
   try {
     const product = req.body;
@@ -21,6 +22,8 @@ const createProduct = async (req: Request, res: Response) => {
     });
   }
 };
+
+// controller to get all products
 
 export const ControllerOfProduct = {
   createProduct,
