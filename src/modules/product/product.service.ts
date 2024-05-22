@@ -32,8 +32,16 @@ const findOneProduct = async (productId: string) => {
   return result;
 };
 
+// update a product by id
+const updateProductInfo = async (productId: string, product: IProduct) => {
+  const result = await Product.findByIdAndUpdate(productId, product);
+
+  return result;
+};
+
 export const ProductServices = {
   createProductInDB,
   getAllProducts,
   findOneProduct,
+  updateProductInfo,
 };

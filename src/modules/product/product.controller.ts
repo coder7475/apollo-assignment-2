@@ -66,8 +66,33 @@ const findOneProduct = async (req: Request, res: Response) => {
   }
 };
 
+// update one specific product
+const updateProductInfo = async (req: Request, res: Response) => {
+  try {
+    const product = req.body;
+    const result = await ProductServices.updateProductInfo(
+      req.params.productId,
+      product,
+    );
+
+    // console.log(result);
+    res.status(200).json({
+      success: true,
+      message: 'Product updated successfully!',
+      data: result,
+    });
+  } catch (error) {
+    // console.log(error);
+    res.status(400).json({
+      success: false,
+      message: 'Product update failed!',
+    });
+  }
+};
+
 export const ControllerOfProduct = {
   createProduct,
   getAllProducts,
   findOneProduct,
+  updateProductInfo,
 };
