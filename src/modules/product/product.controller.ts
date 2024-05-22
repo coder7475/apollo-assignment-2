@@ -32,10 +32,14 @@ const getAllProducts = async (req: Request, res: Response) => {
     // console.log(searchTerm);
     const result = await ProductServices.getAllProducts(searchTerm);
 
+    const message = searchTerm
+      ? `Products matching search term '${searchTerm}' fetched successfully!`
+      : 'Products fetched successfully!';
+
     // console.log(result);
     res.status(200).json({
       success: true,
-      message: 'Products fetched successfully!',
+      message,
       data: result,
     });
   } catch (error) {
