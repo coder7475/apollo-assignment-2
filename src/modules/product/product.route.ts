@@ -16,10 +16,6 @@ router.get('/:productId', ControllerOfProduct.findOneProduct);
 router.put('/:productId', ControllerOfProduct.updateProductInfo);
 
 // api/products/:productId [Delete] - Delete a product
-router.delete('/:productId', (req: Request, res: Response) => {
-  res.json({
-    message: `Delete product Id: ${req.params.productId}!`,
-  });
-});
+router.delete('/:productId', ControllerOfProduct.deleteProductById);
 
 export const ProductRouter = router;

@@ -18,7 +18,7 @@ const createProduct = async (req: Request, res: Response) => {
     // console.log(error);
     res.status(400).json({
       success: false,
-      message: 'Product creation failded',
+      message: 'Product creation failed',
     });
   }
 };
@@ -90,9 +90,32 @@ const updateProductInfo = async (req: Request, res: Response) => {
   }
 };
 
+// update one specific product
+const deleteProductById = async (req: Request, res: Response) => {
+  try {
+    const result = await ProductServices.deleteProductById(
+      req.params.productId,
+    );
+
+    // console.log(result);
+    res.status(200).json({
+      success: true,
+      message: 'Product deleted successfully!',
+      data: result,
+    });
+  } catch (error) {
+    // console.log(error);
+    res.status(404).json({
+      success: false,
+      message: 'Product deletetion failed!',
+    });
+  }
+};
+
 export const ControllerOfProduct = {
   createProduct,
   getAllProducts,
   findOneProduct,
   updateProductInfo,
+  deleteProductById,
 };
