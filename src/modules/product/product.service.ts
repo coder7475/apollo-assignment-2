@@ -16,18 +16,21 @@ const getAllProducts = async (searchTerm: any) => {
       $text: {
         $search: searchTerm,
       },
-    });
+    })
+      .lean()
+      .exec();
     return result;
   } else {
     // get all products
-    const result = await Product.find();
+    const result = await Product.find({}).lean().exec();
+
     return result;
   }
 };
 
 // a a specific product by id
 const findOneProduct = async (productId: string) => {
-  const result = await Product.findById(productId);
+  const result = await Product.findById(productId).lean().exec();
 
   return result;
 };
@@ -36,14 +39,16 @@ const findOneProduct = async (productId: string) => {
 const updateProductInfo = async (productId: string, product: IProduct) => {
   const result = await Product.findByIdAndUpdate(productId, product, {
     new: true,
-  });
+  })
+    .lean()
+    .exec();
 
   return result;
 };
 
 // delete product by id
 const deleteProductById = async (productId: string) => {
-  const result = await Product.findByIdAndDelete(productId);
+  const result = await Product.findByIdAndDelete(productId).lean().exec();
 
   return result;
 };
