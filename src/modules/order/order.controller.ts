@@ -5,7 +5,7 @@ import { OrderServices } from './order.service';
 const createOrder = async (req: Request, res: Response) => {
   try {
     const order = req.body;
-    console.log(order);
+    // console.log(order);
     const result = await OrderServices.createOrder(order);
 
     // console.log(result);

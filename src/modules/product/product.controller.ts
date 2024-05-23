@@ -68,6 +68,7 @@ const findOneProduct = async (req: Request, res: Response) => {
     res.status(404).json({
       success: false,
       message: 'Product fetching failed!',
+      error,
     });
   }
 };
@@ -108,7 +109,7 @@ const deleteProductById = async (req: Request, res: Response) => {
     res.status(200).json({
       success: true,
       message: 'Product deleted successfully!',
-      data: null,
+      data: result,
     });
   } catch (error) {
     // console.log(error);
