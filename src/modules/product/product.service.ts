@@ -9,7 +9,7 @@ const createProductInDB = async (product: IProduct) => {
   return result;
 };
 
-// a service to retrive a list of all products
+// a service to retrive a list of all products with search functionality
 const getAllProducts = async (searchTerm: any) => {
   if (searchTerm) {
     // search a product with search term
