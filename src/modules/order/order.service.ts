@@ -12,7 +12,7 @@ const createOrder = async (order: IOrder) => {
 
 // a service to retrive a list of all orders with
 // eamil search functionality
-const getAllProducts = async (email: any) => {
+const getAllOrders = async (email: any) => {
   if (email) {
     // search orders by email
     const result = await Order.find(
@@ -25,7 +25,7 @@ const getAllProducts = async (email: any) => {
       .exec();
     return result;
   } else {
-    // get all products
+    // get all orders
     const result = await Order.find({}, projection).lean().exec();
 
     return result;
@@ -34,5 +34,5 @@ const getAllProducts = async (email: any) => {
 
 export const OrderServices = {
   createOrder,
-  getAllProducts,
+  getAllOrders,
 };
