@@ -2,8 +2,8 @@
 interface IOrder {
   email: string;
   productId: string;
-  price: Number;
-  quantity: Number;
+  price: number;
+  quantity: number;
 }
 
 export default IOrder;
